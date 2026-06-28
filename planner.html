@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sola Academic Planner</title>
+  <link rel="stylesheet" href="style.css>
+</head>
+<body>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="planner.html">Planner</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <h1>Sola Academic Planner</h1>
+  
+  <main>
+  <section>
+  <h2>Enter New Tasks</h2>
+  <input type="text" id="taskInput" placeholder="Enter New Task...">
+  <button onclick="addTask()">Enter Task</button>
+  </section>
+  
+  <section>
+  <h2>My Tasks</h2>
+  <ul id="taskList"></ul>
+  </section>
+  </main>
+  
+  <script>
+function addTask() {
+  const input = document.getElementById('taskInput');
+  const taskText = input.value.trim();
+
+  if (taskText === "") {
+    alert("Kindly enter a task!");
+    return;
+  }
+
+  const li = document.createElement('li');
+  li.innerHTML = `
+    <input type="checkbox" onchange="toggleTask(this)">
+    <span>${taskText}</span>
+    <button onclick="deleteTask(this)">Delete</button>
+  `;
+
+  document.getElementById('taskList').appendChild(li);
+  input.value = "";
+}
+
+function toggleTask(checkbox) {
+  const span = checkbox.nextElementSibling;
+  span.style.textDecoration = checkbox.checked ? 'line-through' : 'none';
+}
+
+function deleteTask(button) {
+  button.parentElement.remove();
+}
+</script>
+  
+  <footer>
+    <p>&copy; 2026 Fatunmise Sola - Lab 106</p>
+  </footer>
+</body>
+</html>

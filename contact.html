@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact Fatunmise Sola</title>
+  <link rel="stylesheet" href="style.css>
+</head>
+<body>
+  <h1>Contact Me</h1>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="planner.html">Planner</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+  <form id="contactForm" onsubmit="return validateForm()">
+  <label for="name">Full Name:</label><br>
+  <input type="text" id="name" name="name"><br><br>
+  
+  <label for="email">Your Email Address:</label><br>
+  <input type="text" id="email" name="email"><br><br>
+  
+  <label for="phone">Your Phone Number:</label><br>
+  <input type="text" id="phone" name="phone"><br><br>
+  
+  <label for="message">Your Message:</label><br>
+  <textarea id="message" name="message" rows="4"></textarea><br><br>
+  
+  <button type="submit">Send Message</button>
+  </form>
+  </main>
+  
+  <footer>
+    <p>&copy; 2026 Fatunmise Sola - Lab 106</p>
+  </footer>
+  
+  <script>
+  function validateForm() {
+  // 1. Get values - DOM mainpulation
+  const name = document.getElementById('name').value.trim()
+  const email = document.getElementById('email').value.trim()
+  const phone = document.getElementById('phone').value.trim()
+  const message = document.getElementById('message').value.trim()
+  
+  // 2. No fields is empty
+  if (name === "" || email === "" || phone === "" || message === ""  ) {
+  alert("All fields must be fill!");
+  return false;
+  
+// 3. Email format is valid
+const emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailpattern.test(email) {
+alert("Kindly enter a valid email address.")
+return false;
+
+// 4. Phone contains only digits
+const phonepattern = /^[0-9]+$/;
+if (!phonepattern.test(phone)) {
+    alert("Enter your phone number with digits only");
+    return false;
+}
+
+alert("Message sent successfully!");
+return true; 
+}
+</script>
+  
+</body>
+</html>
